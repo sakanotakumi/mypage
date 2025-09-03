@@ -1,0 +1,33 @@
+# Ignore bundler cache
+.bundle
+vendor
+
+# Ignore Jekyll generated files
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore editor files
+.vscode
+.idea
+*.swp
+*.swo
+
+# Ignore environment files
+.env
+.env.local
+
+# Ignore node modules (if using npm)
+node_modules
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+tmp/
+temp/

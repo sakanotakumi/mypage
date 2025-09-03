@@ -1,0 +1,83 @@
+---
+layout: default
+---
+
+<div class="hero-section">
+  <div class="hero-content">
+    <div class="hero-image">
+      <img src="/assets/images/profile.jpg" alt="{{ site.title }}" class="profile-image">
+    </div>
+    <div class="hero-text">
+      <h1>{{ site.title | replace: ' - Portfolio & Blog', '' }}</h1>
+      <p class="hero-subtitle">Software Developer & Tech Enthusiast</p>
+      <p class="hero-description">
+        Passionate about creating innovative solutions and sharing knowledge through code and writing.
+        Welcome to my digital space where I showcase my work and thoughts.
+      </p>
+      <div class="hero-buttons">
+        <a href="/cv/" class="btn btn-primary">View CV</a>
+        <a href="/portfolio/" class="btn btn-secondary">Portfolio</a>
+        <a href="/contact/" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="featured-section">
+  <div class="container">
+    <h2>Latest Blog Posts</h2>
+    <div class="posts-grid">
+      {% for post in site.posts limit:3 %}
+        <article class="post-card">
+          <div class="post-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+            {% if post.categories.size > 0 %}
+              <span class="post-category">{{ post.categories | first }}</span>
+            {% endif %}
+          </div>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+          <a href="{{ post.url | relative_url }}" class="read-more">Read more →</a>
+        </article>
+      {% endfor %}
+    </div>
+    <div class="text-center">
+      <a href="/blog/" class="btn btn-outline">View All Posts</a>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section">
+  <div class="container">
+    <h2>Tech Stack</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3>Frontend</h3>
+        <ul class="skill-list">
+          <li>React / Next.js</li>
+          <li>Vue.js / Nuxt.js</li>
+          <li>TypeScript</li>
+          <li>HTML/CSS/SASS</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>Backend</h3>
+        <ul class="skill-list">
+          <li>Node.js</li>
+          <li>Python</li>
+          <li>Java</li>
+          <li>PostgreSQL/MongoDB</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>Tools & Others</h3>
+        <ul class="skill-list">
+          <li>Git / GitHub</li>
+          <li>Docker</li>
+          <li>AWS / GCP</li>
+          <li>CI/CD</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

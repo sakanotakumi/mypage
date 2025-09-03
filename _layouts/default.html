@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    {% seo %}
+    
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    {% feed_meta %}
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="{{ '/' | relative_url }}">{{ site.title | replace: ' - Portfolio & Blog', '' }}</a>
+                </div>
+                
+                <button class="navbar-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="navbar-menu">
+                    <ul class="navbar-nav">
+                        {% for item in site.navigation %}
+                        <li class="nav-item">
+                            <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
+                                {{ item.title }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="site-main">
+        {{ content }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>{{ site.title | replace: ' - Portfolio & Blog', '' }}</h3>
+                    <p>{{ site.description }}</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        {% for item in site.navigation limit:4 %}
+                        <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        {% for social in site.social %}
+                        <a href="{{ social.url }}" target="_blank" aria-label="{{ social.title }}">
+                            <i class="{{ social.icon }}"></i>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title | replace: ' - Portfolio & Blog', '' }}. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
