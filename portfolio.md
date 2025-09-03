@@ -2,6 +2,7 @@
 layout: page
 title: Portfolio
 description: Showcase of my projects and technical work.
+permalink: /portfolio/
 ---
 
 <div class="portfolio-intro">

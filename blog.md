@@ -2,6 +2,7 @@
 layout: page
 title: Blog
 description: Thoughts, tutorials, and insights on technology and development.
+permalink: /blog/
 ---
 
 <div class="blog-intro">

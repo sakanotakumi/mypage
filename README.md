@@ -1,172 +1,147 @@
 # Personal Portfolio & Blog
 
-A modern, responsive Jekyll website template for personal portfolios and blogs, designed for GitHub Pages deployment.
+CV・自己紹介ページとブログ機能を備えたGitHub Pages用のJekyllサイトテンプレートです。
 
-## Features
+## 🚀 クイックスタート
 
-- **Responsive Design**: Mobile-first approach with modern CSS Grid and Flexbox
-- **CV/Resume Section**: Detailed professional experience and skills showcase
-- **Portfolio Showcase**: Project gallery with filtering capabilities
-- **Blog Functionality**: Jekyll-powered blog with categories and tags
-- **Contact Form**: Ready-to-use contact form (integrates with Formspree)
-- **SEO Optimized**: Built-in SEO meta tags and structured data
-- **Fast Loading**: Optimized assets and minimal dependencies
-- **GitHub Pages Ready**: Deploy directly to GitHub Pages
+### 1. リポジトリの設定
+1. このリポジトリをフォークまたはテンプレートとして使用
+2. リポジトリ名を `mypage` または任意の名前に設定
+3. `_config.yml` でサイト情報を更新
 
-## Quick Start
+### 2. GitHub Pages の有効化
+1. リポジトリの **Settings** → **Pages** に移動
+2. **Source** を「GitHub Actions」に設定
+3. 自動的にサイトがビルド・デプロイされます
 
-1. **Fork this repository** or use it as a template
-2. **Clone to your local machine**:
-   ```bash
-   git clone https://github.com/yourusername/mypage.git
-   cd mypage
-   ```
+### 3. ローカル開発環境のセットアップ
 
-3. **Install dependencies**:
-   ```bash
-   bundle install
-   ```
+```bash
+# リポジトリをクローン
+git clone https://github.com/sakanotakumi/mypage.git
+cd mypage
 
-4. **Run locally**:
-   ```bash
-   bundle exec jekyll serve
-   ```
+# 依存関係をインストール
+bundle install
 
-5. **Visit** `http://localhost:4000` to see your site
+# ローカルサーバーを起動
+bundle exec jekyll serve
 
-## Customization
+# ブラウザで http://localhost:4000 にアクセス
+```
 
-### Basic Configuration
+## 📝 カスタマイズ
 
-Edit `_config.yml` to customize:
+### 基本情報の更新
+`_config.yml` を編集：
 
 ```yaml
-title: Your Name - Portfolio & Blog
+title: あなたの名前 - Portfolio & Blog
 email: your.email@example.com
-description: "Your description here"
+description: "あなたの説明"
+baseurl: "/mypage" # リポジトリ名
 url: "https://yourusername.github.io"
-twitter_username: yourusername
 github_username: yourusername
-linkedin_username: yourusername
 ```
 
-### Personal Information
+### プロフィール画像
+`assets/images/profile.jpg` に画像を配置
 
-1. **Profile Image**: Replace `/assets/images/profile.jpg` with your photo
-2. **About Page**: Edit `about.md` with your information
-3. **CV Page**: Update `cv.md` with your experience and skills
-4. **Portfolio**: Add your projects in `portfolio.md`
+### ページ内容の更新
+- `about.md` - 自己紹介
+- `cv.md` - 履歴書・CV
+- `portfolio.md` - ポートフォリオ
+- `contact.md` - 連絡先
 
-### Adding Blog Posts
+### ブログ記事の追加
+`_posts/` フォルダに以下の形式でファイルを作成：
 
-Create new posts in the `_posts` directory:
-
-```markdown
----
-title: "Your Post Title"
-date: 2024-01-01
-categories: [Category1, Category2]
-tags: [tag1, tag2, tag3]
-excerpt: "Short description of your post"
-featured_image: "/assets/images/post-image.jpg"
----
-
-Your post content here...
+```
+_posts/YYYY-MM-DD-title.md
 ```
 
-### Contact Form Setup
+## 🔧 トラブルシューティング
 
-1. Sign up at [Formspree](https://formspree.io/)
-2. Replace `your-form-id` in `contact.md` with your Formspree form ID
-3. Update contact information in the same file
+### 404 エラーが発生する場合
 
-### Adding Projects
+1. **GitHub Pages の設定確認**
+   - Settings → Pages で「GitHub Actions」が選択されているか確認
+   - Actions タブでビルドが成功しているか確認
 
-Add project images to `/assets/images/` and update the portfolio section in `portfolio.md`:
+2. **_config.yml の確認**
+   ```yaml
+   baseurl: "/mypage" # リポジトリ名と一致させる
+   url: "https://yourusername.github.io"
+   ```
 
-```markdown
-<div class="portfolio-item" data-category="web">
-    <div class="portfolio-image">
-        <img src="/assets/images/your-project.jpg" alt="Project Name">
-        <!-- ... -->
-    </div>
-    <!-- ... -->
-</div>
+3. **ファイル名の確認**
+   - ファイル名は小文字で
+   - スペースの代わりにハイフンを使用
+
+4. **フロントマター の確認**
+   各ページファイルの先頭：
+   ```yaml
+   ---
+   layout: page
+   title: ページタイトル
+   permalink: /about/
+   ---
+   ```
+
+### ローカル環境で動かない場合
+
+```bash
+# Ruby と Bundler がインストールされているか確認
+ruby --version
+bundler --version
+
+# 依存関係を更新
+bundle update
+
+# キャッシュをクリア
+bundle exec jekyll clean
+bundle exec jekyll serve
 ```
 
-## GitHub Pages Deployment
+## 📱 レスポンシブデザイン
 
-1. **Enable GitHub Pages** in your repository settings
-2. **Set source** to "Deploy from a branch"
-3. **Select branch** `main` and folder `/ (root)`
-4. **Custom domain** (optional): Add your domain in settings
+- モバイルファースト設計
+- タブレット・デスクトップ対応
+- モダンなグリッドレイアウト
 
-Your site will be available at `https://yourusername.github.io/repository-name`
+## 🎨 カスタマイズ可能な要素
 
-## Folder Structure
+- カラーテーマ（CSS変数で簡単変更）
+- フォント（Google Fonts）
+- レイアウト構成
+- ナビゲーションメニュー
+
+## 📁 ファイル構造
 
 ```
 mypage/
-├── _layouts/          # HTML layouts
-├── _posts/           # Blog posts
-├── _config.yml       # Site configuration
+├── _layouts/          # HTMLレイアウト
+├── _posts/           # ブログ記事
 ├── assets/
-│   ├── css/         # Stylesheets
-│   ├── js/          # JavaScript files
-│   └── images/      # Images and media
-├── index.html       # Homepage
-├── about.md         # About page
-├── cv.md           # CV/Resume page
-├── portfolio.md    # Portfolio page
-├── blog.md         # Blog listing page
-├── contact.md      # Contact page
-└── Gemfile         # Ruby dependencies
+│   ├── css/         # スタイルシート
+│   ├── js/          # JavaScript
+│   └── images/      # 画像ファイル
+├── _config.yml      # サイト設定
+├── index.html       # ホームページ
+├── about.md         # About ページ
+├── cv.md           # CV/履歴書ページ
+├── portfolio.md    # ポートフォリオページ
+├── blog.md         # ブログ一覧ページ
+└── contact.md      # お問い合わせページ
 ```
 
-## Technologies Used
+## 🚀 デプロイURL
 
-- **Jekyll**: Static site generator
-- **HTML5/CSS3**: Modern web standards
-- **JavaScript**: Interactive functionality
-- **Font Awesome**: Icons
-- **Google Fonts**: Typography (Inter)
-- **GitHub Pages**: Hosting
+サイトは以下のURLでアクセス可能です：
+```
+https://sakanotakumi.github.io/mypage/
+```
 
-## Browser Support
+## 📄 ライセンス
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## Support
-
-If you have any questions or need help customizing this template:
-
-- [Open an issue](https://github.com/yourusername/mypage/issues)
-- [Check the wiki](https://github.com/yourusername/mypage/wiki)
-- Contact me via the website's contact form
-
-## Acknowledgments
-
-- Font Awesome for icons
-- Google Fonts for typography
-- Jekyll community for the amazing static site generator
-- GitHub for free hosting with GitHub Pages
-
----
-
-**Made with ❤️ for developers who want to showcase their work online.**
+このプロジェクトはMITライセンスの下で公開されています。

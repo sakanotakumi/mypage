@@ -2,6 +2,7 @@
 layout: page
 title: Curriculum Vitae
 description: Detailed overview of my professional experience, skills, and achievements.
+permalink: /cv/
 ---
 
 <div class="cv-header">

@@ -2,6 +2,7 @@
 layout: page
 title: About Me
 description: Learn more about my background, experience, and passion for technology.
+permalink: /about/
 ---
 
 <div class="about-section">

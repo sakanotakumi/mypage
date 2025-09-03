@@ -2,6 +2,7 @@
 layout: page
 title: Contact
 description: Get in touch with me for collaborations, questions, or just to say hello.
+permalink: /contact/
 ---
 
 <div class="contact-intro">
