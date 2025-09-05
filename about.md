@@ -11,7 +11,7 @@ permalink: /about/
             <img src="/assets/images/profile.jpg" alt="Profile Photo" class="profile-image-large">
         </div>
         <div class="about-text">
-            <h2>Hello, I'm Takumi Sakano</h2>
+            <h2>Hello, I'm [Takumi Sakano]</h2>
             <p class="lead">
                 A passionate software developer with {{ 'now' | date: "%Y" | minus: 2020 }}+ years of experience 
                 in building modern web applications and solving complex technical challenges.
